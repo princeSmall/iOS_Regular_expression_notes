@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>元字符</title>
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+
+
+</head>
+
+<body>
+
+<p>正则表达式记录表</p>
+
+<h3 id="toc_0">元字符</h3>
+
+<div><pre><code class="language-none">1、 \b : 单词的开始或结束
+
+2、 .* : 任意数量的不包含换行的字符
+    .  : 匹配除换行符以外的任意字符 
+
+3、 \d : 是新的元字符，匹配一位数字
+  \d{n} : 必须连续重复匹配n次
+
+4、 \s : 匹配任意的空白符（空格，制表格，换行符，中文全角空格等）
+
+5、 \w : 匹配字母或者数字或者下划线或者汉字等
+
+6、  ^  : 匹配字符串的开始
+    ￥  : 匹配字符串的结束</code></pre></div>
+
+<p>注意：</p>
+
+<div><pre><code class="language-none"> * 字符转义
+
+ 如果你想查找元字符本身，比如.和* ，这时候你就应该使用\.和\*</code></pre></div>
+
+<h4 id="toc_1">重复</h4>
+
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>说明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>*</td>
+<td>重复零次或更多次</td>
+</tr>
+<tr>
+<td>+</td>
+<td>重复一次或更多次</td>
+</tr>
+<tr>
+<td>?</td>
+<td>重复零次或一次</td>
+</tr>
+<tr>
+<td>{n}</td>
+<td>重复n次</td>
+</tr>
+<tr>
+<td>{n,}</td>
+<td>重复n次或更多次</td>
+</tr>
+<tr>
+<td>{n,m}</td>
+<td>重复n到m次</td>
+</tr>
+</tbody>
+</table>
+
+<p>注意：</p>
+
+<div><pre><code class="language-none">*字符类
+
+如果想匹配没有预定义的元字符集合，比如a，e，o。这时候你就要[aeo]就匹配任何一个英文元音的字母。[.?!]匹配任意一个标点符号</code></pre></div>
+
+<h3 id="toc_2">分枝条件</h3>
+
+<ol>
+<li><p>满足任意一种规则都应该当成匹配，用 | 把不同的规则分割开来</p>
+
+<div><pre><code class="language-none">0\d{2}-\d{8}|0\d{3}-\d{7} 这个表达式能匹配两种以连字号分隔的电话号码：一种是三位区号，8位本地号(如010-12345678)，一种是4位区号，7位本地号(0376-2233445)
+
+ \(0\d{2}\)[- ]?\d{8}|0\d{2}[- ]?\d{8}这个表达式匹配3位区号的电话号码，其中区号可以用小括号括起来，也可以不用，区号与本地号间可以用连字号或空格间隔，也可以没有间隔</code></pre></div></li>
+<li><p>使用分枝条件时，要注意个分枝的顺序</p>
+
+<div><pre><code class="language-none"> \d{5}-\d{4}|\d{5} 换成 \d{5}|\d{5}-\d{4}，那么就只会匹配5位的邮编。原因是匹配分枝条件时，将会从左到右地测试每个条件，如果满足了某个分枝的话，就不会去再管其它的条件了</code></pre></div></li>
+<li><p>重复多个字符，使用分组</p>
+
+<div><pre><code class="language-none">(\d{1,3}\.){3}\d{1,3}是一个简单的IP地址匹配表达式
+
+(\d{1,3}\.){3}匹配三位数字加上一个英文句号(这个整体也就是这个分组)重复3次，最后再加上一个一到三位的数字(\d{1,3})
+
+不幸的是，它也将匹配256.300.888.999这种不可能存在的IP地址
+
+((2[0-4]\d|25[0-5]|[01]?\d\d?)\.){3}(2[0-4]\d|25[0-5]|[01]?\d\d?)。解析正确IP：01-09,0-255
+1. 2[0-4]\d :（200-249)
+2. 25[0-5] :(250-255)
+3. [01]?\d\d? : (01-09,0-199)</code></pre></div></li>
+</ol>
+
+<h3 id="toc_3">反义</h3>
+
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>语法</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>\W</td>
+<td>匹配任意不是字母，数字，下划线，汉字的字符</td>
+</tr>
+<tr>
+<td>\S</td>
+<td>匹配任意不是空白符的字符</td>
+</tr>
+<tr>
+<td>\D</td>
+<td>匹配任意非数字的字符</td>
+</tr>
+<tr>
+<td>\B</td>
+<td>匹配不是单词开头或结束的位置</td>
+</tr>
+<tr>
+<td>[^x]</td>
+<td>匹配除了x以外的任意字符</td>
+</tr>
+<tr>
+<td>[^aeiou]</td>
+<td>匹配除了aeiou这几个字母以外的任意字符</td>
+</tr>
+</tbody>
+</table>
+
+<div><pre><code class="language-none">例如： 
+
+ \S+匹配不包含空白符的字符串。
+
+ &lt;a[^&gt;]+&gt;匹配用尖括号括起来的以a开头的字符串</code></pre></div>
+
+<h3 id="toc_4">后向引用</h3>
+
+<p>常用分组语法</p>
+
+<table>
+<thead>
+<tr>
+<th>分类</th>
+<th>代码/语法</th>
+<th>说明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>捕获</td>
+<td>(exp)</td>
+<td>匹配exp,并捕获文本到自动命名的组里</td>
+</tr>
+<tr>
+<td></td>
+<td>(?<name>exp</td>
+<td>匹配exp,并捕获文本到名称为name的组里，也可以写成(?&#39;name&#39;exp)</td>
+</tr>
+<tr>
+<td></td>
+<td>(?:exp)</td>
+<td>匹配exp,不捕获匹配的文本，也不给此分组分配组号</td>
+</tr>
+<tr>
+<td>零宽断言</td>
+<td>(?=exp)</td>
+<td>匹配exp前面的位置</td>
+</tr>
+<tr>
+<td></td>
+<td>(?&lt;=exp)</td>
+<td>匹配exp后面的位置</td>
+</tr>
+<tr>
+<td></td>
+<td>(?!exp)</td>
+<td>匹配后面跟的不是exp的位置</td>
+</tr>
+<tr>
+<td></td>
+<td>(?&lt;!exp)</td>
+<td>匹配前面不是exp的位置</td>
+</tr>
+<tr>
+<td>注释</td>
+<td>(?#comment)</td>
+<td>这种类型的分组不对正则表达式的处理产生任何影响，用于提供注释让人阅读</td>
+</tr>
+</tbody>
+</table>
+
+<p>注意：</p>
+
+<div><pre><code class="language-none">分组0对应整个正则表达式
+实际上组号分配过程是要从左向右扫描两遍的：第一遍只给未命名组分配，第二遍只给命名组分配－－因此所有命名组的组号都大于未命名的组号
+你可以使用(?:exp)这样的语法来剥夺一个分组对组号分配的参与权</code></pre></div>
+
+<p>例如：</p>
+
+<div><pre><code class="language-none">\b(\w+)\b\s+\1\b可以用来匹配重复的单词：html  html</code></pre></div>
+
+<h3 id="toc_5">零宽断言</h3>
+
+<div><pre><code class="language-none">          &lt;?!w+&gt; ?&lt;!w+
+
+  \b\w*q[^u]\w*\b匹配包含后面不是字母u的字母q的单词。
+
+  你会发现，如果q出现在单词的结尾的话，像Iraq,Benq，这个表达式就会出错。这是因为[^u]总要匹配一个字符，所以如果q是单词的最后一个字符的话，后面的[^u]将会匹配q后面的单词分隔符(可能是空格，或者是句号或其它的什么)，后面的\w*\b将会匹配下一个单词，于是\b\w*q[^u]\w*\b就能匹配整个Iraq fighting
+
+  负向零宽断言能解决这样的问题，因为它只匹配一个位置，并不消费任何字符。现在，我们可以这样来解决这个问题：\b\w*q(?!u)\w*\b
+
+例如
+
+\d{3}(?!\d)匹配三位数字，而且这三位数字的后面不能是数字；\b((?!abc)\w)+\b匹配不包含连续字符串abc的单词。
+
+(?&lt;![a-z])\d{7}匹配前面不是小写字母的七位数字。
+
+(?&lt;=&lt;(\w+)&gt;).*(?=&lt;\/\1&gt;)匹配不包含属性的简单HTML标签内里的内容：被尖括号括起来的单词(比如可能是&lt;b&gt;)，然后是.*(任意的字符串),最后是一个后缀(?=&lt;\/\1&gt;)。注意后缀里的\/，它用到了前面提过的字符转义；\1则是一个反向引用，引用的正是捕获的第一组，前面的(\w+)匹配的内容，这样如果前缀实际上是&lt;b&gt;的话，后缀就是&lt;/b&gt;了。整个表达式匹配的是&lt;b&gt;和&lt;/b&gt;之间的内容(再次提醒，不包括前缀和后缀本身)</code></pre></div>
+
+<h3 id="toc_6">注释</h3>
+
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>语法</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>(?&lt;=</td>
+<td># 断言要匹配的文本的前缀</td>
+</tr>
+<tr>
+<td>&lt;(\w+)&gt;</td>
+<td># 查找尖括号括起来的字母或数字(即HTML/XML标签)</td>
+</tr>
+<tr>
+<td>(</td>
+<td># 前缀结束</td>
+</tr>
+<tr>
+<td>.*</td>
+<td># 匹配任意文本</td>
+</tr>
+<tr>
+<td>(?=</td>
+<td># 断言要匹配的文本的后缀</td>
+</tr>
+<tr>
+<td>&lt;\ / \1&gt;</td>
+<td># 查找尖括号括起来的内容：前面是一个&quot;/&quot;，后面是先前捕获的标签</td>
+</tr>
+<tr>
+<td>)</td>
+<td># 后缀结束</td>
+</tr>
+</tbody>
+</table>
+
+<div><pre><code class="language-none">例如：
+2[0-4]\d(?#200-249)|25[0-5](?#250-255)|[01]?\d\d?(?#0-199)。</code></pre></div>
+
+<h3 id="toc_7">贪婪和懒惰</h3>
+
+<ol>
+<li><p>a.*b，它将会匹配最长的以a开始，以b结束的字符串。如果用它来搜索aabab的话，通常的行为是（在使整个表达式能得到匹配的前提下）匹配尽可能多的字符。它会匹配整个字符串aabab。这被称为贪婪匹配  </p></li>
+<li><p>a.*?b，它将会匹配最长的以a开始，以b结束的字符串。如果用它来搜索aabab的话，匹配任意数量的重复，(但是在能使整个匹配成功的前提下)使用最少的重复,会匹配aab和ab。这被称为懒惰匹配</p>
+
+<p>注意：</p>
+
+<div><pre><code class="language-none">为什么第一个匹配是aab（第一到第三个字符）而不是ab（第二到第三个字符）？
+简单地说，因为正则表达式有另一条规则，比懒惰／贪婪规则的优先级更高：
+最先开始的匹配拥有最高的优先权</code></pre></div></li>
+<li><p>懒惰限定符</p>
+
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>说明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>*？</td>
+<td>重复任意次，但尽可能少重复</td>
+</tr>
+<tr>
+<td>+？</td>
+<td>重复1次或更多次，但尽可能少重复</td>
+</tr>
+<tr>
+<td>？？</td>
+<td>重复0次或1次，但尽可能少重复</td>
+</tr>
+<tr>
+<td>{n,m}?</td>
+<td>重复n到m次，但尽可能少重复</td>
+</tr>
+<tr>
+<td>{n,}?</td>
+<td>重复n次以上，但尽可能少重复</td>
+</tr>
+</tbody>
+</table></li>
+</ol>
+
+<h3 id="toc_8">处理选项</h3>
+
+<p>注意:</p>
+
+<div><pre><code class="language-none">Regex regex = new Regex(@&quot;\ba\w{6}\b&quot;, RegexOptions.IgnoreCase);</code></pre></div>
+
+<p>常用的处理选项</p>
+
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>IgnoreCase</td>
+<td>匹配时不区分大小写</td>
+</tr>
+<tr>
+<td>Multiline</td>
+<td>更改^和$的含义，使它们分别在任意一行的行首和行尾匹配，而不仅仅在整个字符串的开头和结尾匹配。(在此模式下,$的精确含意是:匹配\n之前的位置以及字符串结束前的位置.)</td>
+</tr>
+<tr>
+<td>Singleline</td>
+<td>更改.的含义，使它与每一个字符匹配（包括换行符\n）</td>
+</tr>
+<tr>
+<td>IgnorePatternWhitespace</td>
+<td>忽略表达式中的非转义空白并启用由#标记的注释。</td>
+</tr>
+<tr>
+<td>ExplicitCapture</td>
+<td>仅捕获已被显式命名的组。</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="toc_9">常用事例</h3>
+
+<table>
+<thead>
+<tr>
+<th>说明</th>
+<th>正则表达式</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>网址(url)</td>
+<td>[a-zA-z]+://[^\s]*</td>
+</tr>
+<tr>
+<td>IP地址</td>
+<td>((2[0-4]\d</td>
+</tr>
+<tr>
+<td>电子邮件(email)</td>
+<td>\w+([-+.]\w+)<em>@\w+([-.]\w+)</em>.\w+([-.]\w+)*</td>
+</tr>
+<tr>
+<td>QQ号码</td>
+<td>[1-9]\d{4,}</td>
+</tr>
+<tr>
+<td>HTML标签</td>
+<td>&lt;(.<em>)(.</em>)&gt;.*&lt;\/\1&gt;</td>
+</tr>
+<tr>
+<td>密码(有数字/大写字母/小写字母/标点，8位以上)</td>
+<td>(?=^.{8,}$)(?=.<em>\d)(?=.</em>\W+)(?=.<em>[A-Z])(?=.</em>[a-z])(?!.<em>\n).</em>$</td>
+</tr>
+<tr>
+<td>日期</td>
+<td>(\d{4}</td>
+</tr>
+<tr>
+<td>汉字</td>
+<td>[\u4e00-\u9fa5]</td>
+</tr>
+<tr>
+<td>中文及全角标点符号</td>
+<td>[\u3000-\u301e\ufe10-\ufe19\ufe30-\ufe44\ufe50-\ufe6b\uff01-\uffee]</td>
+</tr>
+</tbody>
+</table>
+
+<p>注意：</p>
+
+<div><pre><code class="language-none">ios 开发使用 RegexKit.framework 框架 </code></pre></div>
+
+<p>使用规则：</p>
+
+<div><pre><code class="language-none"> 昵称验证：(4-8)位汉字    
+ + (BOOL) validateNickname:(NSString *)nickname
+{
+    NSString *nicknameRegex = @&quot;^[\u4e00-\u9fa5]{4,8}$&quot;;
+
+    NSPredicate *passWordPredicate = [NSPredicate predicateWithFormat:@&quot;SELF MATCHES %@&quot;,nicknameRegex];
+
+    return [passWordPredicate evaluateWithObject:nickname];
+}
+
+密码验证：(6-20)位英文不分大小写和数字
++ (BOOL) validatePassword:(NSString *)passWord
+{
+   NSString *passWordRegex = @&quot;^[a-zA-Z0-9]{6,20}+$&quot;;
+
+   NSPredicate *passWordPredicate = [NSPredicate predicateWithFormat:@&quot;SELF MATCHES %@&quot;,passWordRegex];
+
+   return [passWordPredicate evaluateWithObject:passWord];
+}
+
+邮箱验证：
++ (BOOL) validateEmail:(NSString *)email
+{
+   NSString *emailRegex = @&quot;[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}&quot;;
+
+   NSPredicate *emailTest = [NSPredicate predicateWithFormat:@&quot;SELF MATCHES %@&quot;, emailRegex];
+
+   return [emailTest evaluateWithObject:email];</code></pre></div>
+
+<p>}   </p>
+
+
+
+
+</body>
+
+</html>
